@@ -1,0 +1,14 @@
+<p>PRODUCTOS</p>
+<div>
+    {{#each coso}}
+    <ul>
+        <li>{{this.title}}</li>
+        <li>{{this.description}}</li>
+         <li>${{this.price}}</li>
+        <li>{{this.thumbnail}}</li>
+        <li>{{this.code}}</li>
+        <li>{{this.stock}}</li>
+        <li>{{this.id}}</li>
+    </ul>
+    {{/each}}
+</div>
