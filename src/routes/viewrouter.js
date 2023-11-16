@@ -1,4 +1,5 @@
 import { Router } from "express";
+const router = Router();
 import ProductManager from './ProductManager.router.js'
 // import { __dirname } from "../utils.js";
 import { productPath } from '../utils.js';
@@ -73,6 +74,21 @@ router.get("/chat",async(req,res)=>{
     const messages = await chatManager.getAll();
     res.render("chat",{messages});
 });
+
+router.get('/register', publicAccess, (req, res) => {
+    res.render('register')
+});
+
+router.get('/login', publicAccess, (req, res) => {
+    res.render('login')
+});
+
+router.get('/', privateAccess, (req, res) => {
+    res.render('profile', {
+        user: req.session.user
+    })
+});
+
 
 
 export default router;

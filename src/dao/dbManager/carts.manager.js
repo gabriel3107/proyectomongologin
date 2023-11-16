@@ -21,6 +21,11 @@ update = async (cid,products) =>{
     return result;
 }
 
+deleteProduct = async (cid,pid) =>{
+    const result = await cartsModel.updateOne({_id:cid},{$pull:{products:{product:{_id:pid}}}});
+    res.send({status:"success",payload:result})
+}
+
 save = async () => {
 const result = await cartsModel.create({"products":[]});
 return result;
